@@ -26,9 +26,11 @@ export class TaskScreenComponent implements OnInit {
     });
 
     this.activatedRoute.params.subscribe((params: Params) => {
-      const taskListId = params.taskListId;
+      this.taskListId = params.taskListId;
       if (this.taskListId) {
-        this.taskService.getAllTasksForATaskList(this.taskListId);
+        this.taskService
+          .getAllTasksForATaskList(this.taskListId)
+          .subscribe((tasks: TaskModel[]) => (this.tasks = tasks));
       }
     });
   }
@@ -60,7 +62,7 @@ export class TaskScreenComponent implements OnInit {
   addNewTask() {
     if (this.taskListId) {
       // route the user to add task screen for the selected task list
-      this.router.navigate(['/new-task'], { relativeTo: this.activatedRoute });
+      this.router.navigate(['./new-task'], { relativeTo: this.activatedRoute });
     } else {
       alert('Please select a task list');
       return;

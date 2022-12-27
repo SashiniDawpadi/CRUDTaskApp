@@ -26,8 +26,8 @@ export class TaskService {
   }
 
   // to fetch all tasks inside a task list obj
-  getAllTasksForATaskList(taskListId: string) {
-    this.apiConfigService.getTasks(`tasklists/${taskListId}/tasks`);
+  getAllTasksForATaskList(taskListId: string): Observable<TaskModel[]> {
+    return this.apiConfigService.getTasks(`tasklists/${taskListId}/tasks`);
   }
 
   // create a task inside a particular task list obj

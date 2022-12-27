@@ -7,10 +7,10 @@ import { TaskScreenComponent } from './screens/task-screen/task-screen.component
 const routes: Routes = [
   { path: '', redirectTo: 'task-list', pathMatch: 'full' },
   { path: 'task-list', component: TaskScreenComponent },
-  { path: 'task-lists/:taskListId', component: TaskScreenComponent },
+  { path: 'task-list/:taskListId', component: TaskScreenComponent },
   { path: 'new-task-list', component: NewTaskListScreenComponent },
   {
-    path: ' task-list/:taskListId/new-task',
+    path: 'task-list/:taskListId/new-task',
     component: NewTaskScreenComponent,
   },
 ];

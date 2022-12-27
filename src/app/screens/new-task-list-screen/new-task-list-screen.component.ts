@@ -18,10 +18,11 @@ export class NewTaskListScreenComponent implements OnInit {
       this.taskService
         .createTaskList(title)
         .subscribe((newlyCreatedTaskList: TaskListModel) => {
-          this.router.navigate(['/tasklist', newlyCreatedTaskList._id]);
+          console.log(newlyCreatedTaskList);
+          this.router.navigate(['task-list', newlyCreatedTaskList._id]);
         });
     } else {
-      alert('Title cannot be ampty');
+      alert('Title cannot be empty');
       return;
     }
   }
